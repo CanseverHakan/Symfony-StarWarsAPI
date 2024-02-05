@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Star Wars
+{% endblock %}
+
+{% block body %}
+	{% include "partial/_header.html.twig" %}
+
+	<div class="d-flex justify-content-center align-items-center">
+		<h1>Star Wars Films</h1>
+	</div>
+
+	<div class="d-flex flex-wrap d-flex justify-content-center align-items-center">
+
+		{% for film in resultats %}
+			<div class="card m-5" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title d-flex justify-content-center align-items-center">
+						<strong>{{ film.title }}</strong>
+					</h5>
+					<p class="card-text">
+						<strong>Description:</strong>
+						{{ film.opening_crawl }}</p>
+					<p class="card-text">
+						<strong>Director:</strong>
+						{{ film.director }}</p>
+					<p class="card-text">
+						<strong>Producer:</strong>
+						{{ film.producer }}</p>
+					<p class="card-text">
+						<strong>Release Date:</strong>
+						{{ film.release_date }}</p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+	{% include "partial/_footer.html.twig" %}
+{% endblock %}
